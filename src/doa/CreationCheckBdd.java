@@ -65,7 +65,7 @@ public class CreationCheckBdd {
                 System.out.println("Insertion utilisateur deja realise");
             }
              
-            res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbc' AND TABLE_NAME='client';");
+            res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbcGroupe2' AND TABLE_NAME='client';");
             if (res.next()) {
                 System.out.println("Table client deja cree");
             } else {
@@ -93,7 +93,7 @@ public class CreationCheckBdd {
                 System.out.println("Insertion client deja realise");
             }
 
-            res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbc' AND TABLE_NAME='fournisseur';");
+            res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbcGroupe2' AND TABLE_NAME='fournisseur';");
             if (res.next()) {
                 System.out.println("Table fournisseur deja cree");
             } else {
@@ -120,7 +120,7 @@ public class CreationCheckBdd {
                 System.out.println("Insertion fournisseur deja realise");
             }
 
-            res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbc' AND TABLE_NAME='article';");
+            res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbcGroupe2' AND TABLE_NAME='article';");
             if (res.next()) {
                 System.out.println("Table article deje cree");
             } else {
