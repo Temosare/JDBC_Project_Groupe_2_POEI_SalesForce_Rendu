@@ -26,19 +26,21 @@ public class CreationCheckBdd {
 
             ResultSet res = stmt.executeQuery("SELECT schema_name FROM information_schema.schemata WHERE schema_name = 'jdbcGroupe2';");
             if (res.next()) {
-                System.out.println("BDD dejà crée");
+                System.out.println("-----------------------------------");
+                System.out.println("BDD deja cree");
             } else {
-                System.out.println("Création de la Bdd...");
+                System.out.println("-----------------------------------");
+                System.out.println("Creation de la Bdd...");
                 stmt.executeUpdate("CREATE database jdbcGroupe2;");
-                System.out.println("Bdd créée");
+                System.out.println("Bdd cree");
             }
             stmt.executeUpdate("use jdbcGroupe2;");
 
             res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbcGroupe2' AND TABLE_NAME='utilisateur';");
             if (res.next()) {
-                System.out.println("Table utilisateur dejà créée");
+                System.out.println("Table utilisateur deja cree");
             } else {
-                System.out.println("Création de la table utilisateur...");
+                System.out.println("Creation de la table utilisateur...");
                 stmt.executeUpdate("""
             CREATE TABLE IF NOT EXISTS utilisateur
             (
@@ -51,7 +53,7 @@ public class CreationCheckBdd {
                 password       varchar(50) not null,
                 CONSTRAINT UK_numero_emp_utilisateur UNIQUE(numero_emp)                   
             );""");
-                System.out.println("Table utilisateur créée");
+                System.out.println("Table utilisateur cree");
             }
             try{
                 stmt.executeUpdate("INSERT INTO utilisateur (numero_emp, nom, prenom, email, login, password)VALUES (1, 'chirac','bob','chiracbob@exemple.com','bob','boby55');");
@@ -65,9 +67,9 @@ public class CreationCheckBdd {
              
             res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbc' AND TABLE_NAME='client';");
             if (res.next()) {
-                System.out.println("Table client dejà créée");
+                System.out.println("Table client deja cree");
             } else {
-                System.out.println("Création de la table client...");
+                System.out.println("Creation de la table client...");
                 stmt.executeUpdate("""
             create table IF NOT EXISTS client
             (
@@ -79,7 +81,7 @@ public class CreationCheckBdd {
                 adresse   varchar(50) not null,
                 CONSTRAINT UK_numero_client UNIQUE(numero)
             );""");
-                System.out.println("Table client créée");
+                System.out.println("Table client cree");
             }
             try{
                 stmt.executeUpdate("INSERT INTO client (numero, nom, prenom, email, adresse)VALUES (1, 'durant','lorie','durantlorie@exemple.com','30 rue de la dome');");
@@ -93,9 +95,9 @@ public class CreationCheckBdd {
 
             res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbc' AND TABLE_NAME='fournisseur';");
             if (res.next()) {
-                System.out.println("Table fournisseur dejà créée");
+                System.out.println("Table fournisseur deja cree");
             } else {
-                System.out.println("Création de la table fournisseur...");
+                System.out.println("Creation de la table fournisseur...");
                 stmt.executeUpdate("""
             create table IF NOT EXISTS fournisseur
             (
@@ -106,7 +108,7 @@ public class CreationCheckBdd {
                 adresse        varchar(50) not null,
                 CONSTRAINT UK_numero_fournisseur UNIQUE(numero)
             );""");
-                System.out.println("Table fournisseur créée");
+                System.out.println("Table fournisseur cree");
             }
             try{
                 stmt.executeUpdate("INSERT INTO fournisseur (numero, nom, email, adresse)VALUES (1, 'windows', 'windows@exemple.com','domaine windows 32');");
@@ -120,9 +122,9 @@ public class CreationCheckBdd {
 
             res = stmt.executeQuery("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='jdbc' AND TABLE_NAME='article';");
             if (res.next()) {
-                System.out.println("Table article dejà créée");
+                System.out.println("Table article deje cree");
             } else {
-                System.out.println("Création de la table article...");
+                System.out.println("Creation de la table article...");
                 stmt.executeUpdate("""
             create table IF NOT EXISTS article
             (
@@ -133,22 +135,23 @@ public class CreationCheckBdd {
                 description varchar(150) not null,
                 CONSTRAINT UK_numero_article UNIQUE(numero)
             );""");
-                System.out.println("Table article créée");
+                System.out.println("Table article cree");
             }
             try{
                 stmt.executeUpdate("INSERT INTO article (numero, buy_or_sell, nom, description)VALUES (1, true, 'roue','roue de mobilette');");
                 stmt.executeUpdate("INSERT INTO article (numero, buy_or_sell, nom, description)VALUES (2, false, 'vitre retro','vitre vintage annee 50');");
                 stmt.executeUpdate("INSERT INTO article (numero, buy_or_sell, nom, description)VALUES (3, true, 'poubelle n2','grosse poubelle de recyclage');");
                 System.out.println("Insertion article de base effectuee");
+                System.out.println("-----------------------------------");
             }
             catch(SQLException e){
                 System.out.println("Insertion article deja realise");
+                System.out.println("-----------------------------------");
             }
-
+            
             } catch (SQLException ex) {
             throw new RuntimeException(ex);   
         }
     }
-
 }
 

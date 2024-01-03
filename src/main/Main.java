@@ -815,7 +815,10 @@ public class Main {
                             }
                         }
                     }
-                    case 2 -> startProg = false;
+                    case 2 -> {
+                        tableChoice = false;
+                        startProg = false;
+                    }
                     default -> {
                         System.out.println("Saisi incorecte");
                         System.out.println("---------------------------");
