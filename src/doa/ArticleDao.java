@@ -15,7 +15,7 @@ public class ArticleDao {
     /**
      *
      * @param numero
-     * @param buyOrSell
+     * @param buyOrSell info sur acheter ou vendu true acheter | false vendu
      * @param nom
      * @param description
      * @return
@@ -83,7 +83,7 @@ public class ArticleDao {
      *
      * @param articleId
      * @param numero
-     * @param buyOrSell
+     * @param buyOrSell info sur acheter ou vendu true acheter | false vendu
      * @param nom
      * @param description
      * @return
